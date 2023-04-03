@@ -1,6 +1,6 @@
 import React from 'react';
 import {useEffect, useState} from 'react';
-import { Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 
 
 function App() {
@@ -25,22 +25,37 @@ function App() {
     e.preventDefault();
     setState(e.target[0].value);
     }
-    
-    // console.log("data: "+ data?.main?.temp + "celcius");
-    // console.log("icon" + data?.weather?.[0]?.icon);
+  
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input type='text'/>
-        <Button type='submit'>Search</Button>
-      </form>
-      {data?.main?.temp?
-      <>
-        <img src={"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png "} />
-        <h1>{data.main.temp} Celcius</h1>
-      </>
-      :""}
+      <Container>
+        <Row>
+          <Col lg={12}>
+            <Card >
+              
+              <Card.Body>
+                <Card.Title>Weather</Card.Title>
+                <Card.Text>
+                {data?.main?.temp?
+                  <>
+                    <img src={"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png "} />
+                    <h1>{data.main.temp} Celcius</h1> 
+                    <h3>{data.weather[0].description}</h3>
+                  </>
+                  :<h1>Enter a valid city name</h1>} 
+                </Card.Text>
+
+                <form onSubmit={handleSubmit}>
+                  <input type='text' placeholder='Enter city name'/>
+                  <Button type='submit' variant="outline-danger" size="lg"  >Search</Button>
+                </form>
+                
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </Container>
 
     </>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import {useEffect, useState} from 'react';
 import CurrentWeather from './CurrentWeather';
 import Forecast from './Forecast';
+import Navigationbar from './Navigationbar';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
 
   return (
     <>
+      <Navigationbar />
       <CurrentWeather currentWeatherData={currentWeatherData} state={state} setState={setState} />
       {forecastData?.list?<Forecast forecastData={forecastData} />:""}
 

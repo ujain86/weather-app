@@ -17,8 +17,13 @@
   color: rgb(39, 171, 171);
 }
 
+#current-weather-card{
+  display: flex;
+  justify-content: center;
+}
+
 input[type=text] {
-  width: 70%;
+  width: 85%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -28,7 +33,6 @@ input[type=text] {
 
 button{
   padding: 12px 20px;
-
 }
 
 .btn{

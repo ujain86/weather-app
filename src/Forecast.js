@@ -5,17 +5,14 @@ import ForecastCards from './ForecastCards.js';
 function Forecast(props) {
 
     const forecastData= props.forecastData; 
-
     var date = new Date(forecastData?.list?.[0].dt * 1000);
-    // console.log(date);
-    var array = [0,8,16,24,32];
-
+    var array = [7,15,23,31,39];
     var forecastDataArray = forecastData?.list;
-    // console.log(forecastDataArray);
+
   return (
     <>
         <Container>
-            <Row>
+            <Row className='mt-1'>
                 <Col lg={2}>
                     <Card >
                     

@@ -6,18 +6,14 @@ function ForecastCards(props) {
     const {forecastData, index} = props;
     var date = new Date(forecastData.dt * 1000);
     var temp = forecastData.main.temp;
-    console.log("date: ", forecastData);
     var newDate = date.toString().slice(0, 24);
-    console.log(forecastData.weather[0].icon);
-
 
   return (
     
         <Col lg={2} >
             <Card >
-        
                 <Card.Body>
-                    {/* <Card.Title>Forecast</Card.Title> */}
+                    
                     <Card.Text>
                         <img src={"http://openweathermap.org/img/w/" + forecastData.weather[0].icon + ".png "} />
                         <h5>{temp} Celcius</h5> 
@@ -27,10 +23,6 @@ function ForecastCards(props) {
                 </Card.Body>
             </Card>
         </Col>
-        // {/* <img src={"http://openweathermap.org/img/w/" + forecastData.weather[0].icon + ".png"} />
-        // <h3>{temp} Celcius</h3>
-        // <h6>{newDate}</h6> */}
-    
   )
 }
 

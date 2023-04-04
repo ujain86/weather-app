@@ -8,8 +8,13 @@ function CurrentWeather(props) {
     const forecastData = props.forecastData;
     const state = props.state;
     const setState = props.setState;
+    const timestamp = new Date(currentWeatherData?.dt * 1000);
+    const newTimestamp = timestamp.toString();
+    const currentDate = newTimestamp.slice(0,24);
 
-    // console.log(setState);
+
+
+    console.log(currentWeatherData);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,16 +27,19 @@ function CurrentWeather(props) {
         <Container>
         <Row>
           <Col lg={12}>
-            <Card >
+            <div id="current-weather-card">
+            <Card style={{ width: '100rem' }}>
               
               <Card.Body>
-                <Card.Title>Weather</Card.Title>
+                <Card.Title>Current Weather</Card.Title>
+                {currentWeatherData?.dt?<h6>{currentDate}</h6>:""}
                 <Card.Text>
                 {currentWeatherData?.main?.temp?
                   <>
                     <img src={"http://openweathermap.org/img/w/" + currentWeatherData.weather[0].icon + ".png "} />
                     <h1>{currentWeatherData.main.temp} Celcius</h1> 
                     <h3>{currentWeatherData.weather[0].description}</h3>
+                    <h4>{currentWeatherData.name}</h4>
                   </>
                   :<h1>Enter a valid city name</h1>} 
                 </Card.Text>
@@ -43,6 +51,7 @@ function CurrentWeather(props) {
                 
               </Card.Body>
             </Card>
+            </div>
           </Col>
         </Row>
       </Container>

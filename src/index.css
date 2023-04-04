@@ -1,5 +1,5 @@
 #root{
-  height: 70vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,3 +26,8 @@ button{
   padding: 9px 20px;
   margin: 20px;
 }
+
+/* #forecast-row{
+  display: flex;
+  flex-direction: row;
+} */

@@ -16,17 +16,18 @@ function Forecast(props) {
     <>
         <Container>
             <Row>
-                <Col lg={12} >
+                <Col lg={2}>
                     <Card >
-                
+                    
                         <Card.Body>
-                            <Card.Title>Forecast</Card.Title>
-                            {array.map((item, i) => {
-                                return <ForecastCards index={item} forecastData={forecastDataArray[item]} key={i} />
-                            })}
+                            <Card.Title> 5 Day Forecast</Card.Title>
                         </Card.Body>
                     </Card>
                 </Col>
+                   
+                {array.map((item, i) => {
+                    return <ForecastCards index={item} forecastData={forecastDataArray[item]} key={i} />
+                })} 
             </Row>
         </Container>
     </>
